@@ -13,6 +13,13 @@ Serial pc(SERIAL_TX, SERIAL_RX);
 
 DigitalOut myled(LED1);
 
+
+void setup(){
+}
+
+void loop(){
+}
+
 int main()
 {
     int i = 1;
