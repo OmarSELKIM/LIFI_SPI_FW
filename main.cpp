@@ -9,24 +9,27 @@
 // Et voila le miens (Riyad) 
 // ABCD
 
-Serial pc(SERIAL_TX, SERIAL_RX);
+int i = 1;
 
+Serial pc(SERIAL_TX, SERIAL_RX);
 DigitalOut myled(LED1);
 
 
 void setup(){
+	pc.printf("Hello World !\n");
 }
 
 void loop(){
+		wait(1);
+		pc.printf("This program runs since %d seconds.\n", i++);
+		myled = !myled;
 }
 
 int main()
 {
-    int i = 1;
-    pc.printf("Hello World !\n");
-    while(1) {
-        wait(1);
-        pc.printf("This program runs since %d seconds.\n", i++);
-        myled = !myled;
+		setup();
+	
+    while(1){
+			loop();
     }
 }
