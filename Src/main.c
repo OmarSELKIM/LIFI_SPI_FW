@@ -75,6 +75,12 @@ static void MX_CRC_Init(void);
   */
 
 
+
+
+
+
+
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -107,17 +113,35 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-
+  while(1){
   /* USER CODE END WHILE */
+	  HAL_GPIO_WritePin(RGB_GPIO_Port,R_Pin,GPIO_PIN_SET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(RGB_GPIO_Port,G_Pin,GPIO_PIN_SET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(RGB_GPIO_Port,B_Pin,GPIO_PIN_SET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(RGB_GPIO_Port,R_Pin,GPIO_PIN_RESET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(RGB_GPIO_Port,G_Pin,GPIO_PIN_RESET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(RGB_GPIO_Port,B_Pin,GPIO_PIN_RESET);
+	  HAL_Delay(500);
 
   /* USER CODE BEGIN 3 */
-
   }
   /* USER CODE END 3 */
-
 }
+
+
+
+
+
+
+
+
+
+
 
 /**
   * @brief System Clock Configuration
@@ -241,6 +265,26 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+
+
+  /*Configure GPIO pin : R_Pin */
+  GPIO_InitStruct.Pin = R_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RGB_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin : G_Pin */
+  GPIO_InitStruct.Pin = G_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RGB_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin : B_Pin */
+  GPIO_InitStruct.Pin = B_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RGB_GPIO_Port, &GPIO_InitStruct);
 
 }
 
